@@ -9,6 +9,10 @@ const Navbar = () => (
     <NavLink to="/userprofile" >
       <Menu.Item>Your Profile</Menu.Item>
     </NavLink>
+    <NavLink to="/hobbies">
+      <Menu.Item>Your Hobbies</Menu.Item>
+    </NavLink>
+
   </Menu>
 )
 export default Navbar;
