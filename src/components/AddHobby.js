@@ -1,14 +1,22 @@
 import React from 'react';
 import { Form, Header } from 'semantic-ui-react';
+import { HobbyConsumer, } from '../providers/HobbyProvider';
 class AddHobby extends React.Component {
   state = { name: "", avatar: "", description: ""}
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value})
   }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {...this.state}
+    this.props.add(data)
+    this.setState({ name: "", description: "", avatar: ""})
+    this.props.toggle()
+  }
   render() {
     const { name, avatar, description, } =  this.state;
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Header as="h2">Add a Hobby</Header>
         <Form.Group widths="equal" >
           <Form.Input
@@ -38,7 +46,18 @@ class AddHobby extends React.Component {
     )
   }
 }
-export default AddHobby;
+
+const ConnectedForm = (props) => (
+  <HobbyConsumer>
+    {value => (
+      <AddHobby
+      {...props}
+      add={value.update}
+      />
+    )}
+  </HobbyConsumer>
+)
+export default ConnectedForm;
 
 
         

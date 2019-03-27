@@ -15,9 +15,11 @@ class HobbyProvider extends React.Component {
       description: "Repellendus rem ipsum pariatur explicabo aspernatur obcaecati iusto nihil facilis, nesciunt delectus molestiae neque quasi.",
       avatar: "bed"
     },
-  ]}
+  ],
+  update: (data) => this.update(data),
+}
   update = (data) => {
-    this.setState({ hobbies: [...this.state, data]})
+    this.setState({ hobbies: [...this.state.hobbies, data]})
   }
   render() {
     return (

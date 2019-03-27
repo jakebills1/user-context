@@ -34,7 +34,7 @@ class Hobbies extends React.Component {
             <Icon name={showForm ? "minus" : "plus"} />
           </Button>
         </div>
-        {showForm ? <AddHobby /> : null}
+        {showForm ? <AddHobby toggle={this.toggleForm}/> : null}
 
       </>
       )
